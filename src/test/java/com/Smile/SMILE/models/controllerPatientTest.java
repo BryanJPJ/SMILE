@@ -40,8 +40,8 @@ public class controllerPatientTest {
         List<Patient> patients = new ArrayList<>();
 
 
-        Patient patientMale =  new Patient(0l,"Bryan");
-        Patient patienTFemale = new Patient(2l, "Sofia");
+        Patient patientMale =  new Patient(582395,'Juan');
+        Patient patienTFemale = new Patient(592341, 'Omar');
 
         patients.add(patientMale);
         patients.add(patienTFemale);
