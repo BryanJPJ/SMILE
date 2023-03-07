@@ -1,8 +1,12 @@
 package com.Smile.SMILE.models;
 
 import javax.persistence.Column;
+import java.util.ArrayList;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -18,11 +22,11 @@ public class Patient {
     @Column(nullable = false, length = 45)
     private String name;
 
-    public Patient(Long dni, String name, Profile profile, List<Treatment> treatment) {
+    public Patient(Long dni, String name, Profile profile) {
         this.dni = dni;
         this.name = name;
         this.profile = profile;
-        this.treatment = treatment;
+        this.treatment = new ArrayList<>();
     }
 
     public Patient() {
@@ -61,8 +65,16 @@ public class Patient {
     public void setTreatment(List<Treatment> treatment) {
         this.treatment = treatment;
     }
+    public void AddTreatments(Treatment treatment){
+        this.treatment.add(treatment);
+    }
     
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "patients_treatment",
+        joinColumns = @JoinColumn(name = "patient_dni"),
+        inverseJoinColumns = @JoinColumn(name = "treatment_id_treatment")
+    )
     private List<Treatment> treatment;
     @OneToOne
     private Profile profile;
