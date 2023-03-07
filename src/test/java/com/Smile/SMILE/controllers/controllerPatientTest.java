@@ -36,8 +36,8 @@ public class controllerPatientTest {
             List<Patient> patients = new ArrayList<>();
     
     
-            Patient patientMale =  new Patient(582395,'Juan');
-            Patient patienTFemale = new Patient(592341, 'Omar');
+            Patient patientMale =  new Patient(582395,"Bryan");
+            Patient patienTFemale = new Patient(592341, "Sandra");
     
             patients.add(patientMale);
             patients.add(patienTFemale);
@@ -51,7 +51,7 @@ public class controllerPatientTest {
     
             assertThat(resp.getStatus()).isEqualTo(200);
             assertThat(resp.getContentAsString()).contains("Bryan");
-            assertThat(resp.getContentAsString()).contains("Sofia");
+            assertThat(resp.getContentAsString()).contains("Sandra");
             
         }
 }
