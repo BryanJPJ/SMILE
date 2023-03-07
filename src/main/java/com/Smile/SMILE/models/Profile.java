@@ -1,13 +1,9 @@
 package com.Smile.SMILE.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import java.util.List;
+
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "profilies")
@@ -16,8 +12,6 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "id_city")
-    private String city;
     @Column(name = "age")
     private int age;
     @Column(name = "phone")
@@ -26,16 +20,27 @@ public class Profile {
     private String direction;
     @Column(name = "id_treatment")
     private String id_treatment;
+    @ManyToMany
+    private List<Treatment> treatment;
+    @ManyToOne(fetch =  FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_city", nullable = false)
+    private City city;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_patient" ,referencedColumnName = "dni")
+    private Patient patient;
 
-    public Profile(Long id, String city, int age, int phone, String direction, String id_treatment) {
+    public Profile(Long id, City city, int age, int phone, String direction, String id_treatment, List<Treatment> treatment) {
         this.id = id;
         this.city = city;
         this.age = age;
         this.phone = phone;
         this.direction = direction;
         this.id_treatment = id_treatment;
+        this.treatment = treatment;
     }
 
+    
     public Profile() {
     }
 
@@ -47,11 +52,11 @@ public class Profile {
         this.id = id;
     }
 
-    public String getCity() {
+    public City getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(City city) {
         this.city = city;
     }
 
@@ -87,8 +92,23 @@ public class Profile {
         this.id_treatment = id_treatment;
     }
 
-    @OneToOne
-    @JoinColumn(name = "id_patient" ,nullable=true)
-    private Patient patient;
+    public Patient getPatient() {
+        return patient;
+    }
 
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+
+    public List<Treatment> getTreatment() {
+        return treatment;
+    }
+
+
+    public void setTreatment(List<Treatment> treatment) {
+        this.treatment = treatment;
+    }
+
+    
 }
