@@ -1,5 +1,7 @@
 # Contexto del Proyecto
-## Realizar un MVP básico para realizar consultas sobre una clinica dental y estas queden registradas en una base de datos de MysQL, donde también se puedan consultar mediante postman.
+Realizar un MVP básico para realizar consultas sobre una clinica dental y estas queden registradas en una base de datos de MysQL, donde también se puedan consultar mediante postman.
+## Imagen del diagrama UML
+<img src="./src/img/UML.png" alt="DDBB" width="300">  
 
 ## Requisitos:
 
