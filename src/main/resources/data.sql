@@ -15,4 +15,6 @@ INSERT INTO treatments (id_treatment, title, description) VALUES (null, 'Gripe',
 INSERT INTO treatments (id_treatment, title, description) VALUES (null, 'Migranas', '1mg Diazepam')
 INSERT INTO treatments (id_treatment, title, description) VALUES (null, 'Dolor Muscular', '10mg insulina')
 
-INSERT INTO profilies (id, id_city, age, phone, direction, id_treatment) VALUES (null, 1, 32 ,666352672, 'calle murcia,2', 'muerte')
+INSERT INTO profilies (id, id_city, age, phone, direction, id_treatment) VALUES (null, 1, 32 ,666352672, 'calle murcia,2', 1)
+INSERT INTO profilies (id, id_city, age, phone, direction, id_treatment) VALUES (null, 2, 12 ,342345523, 'C/Alava, 9', 3)
+INSERT INTO profilies (id, id_city, age, phone, direction, id_treatment) VALUES (null, 3, 26 ,542344234, 'Avd Gaspar Garcia Laviana, 34', 2)

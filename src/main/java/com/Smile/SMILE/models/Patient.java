@@ -1,7 +1,6 @@
 package com.Smile.SMILE.models;
 
 import javax.persistence.Column;
-import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -26,7 +25,6 @@ public class Patient {
         this.dni = dni;
         this.name = name;
         this.profile = profile;
-        this.treatment = new ArrayList<>();
     }
 
     public Patient() {
@@ -70,11 +68,7 @@ public class Patient {
     }
     
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-        name = "patients_treatment",
-        joinColumns = @JoinColumn(name = "patient_dni"),
-        inverseJoinColumns = @JoinColumn(name = "treatment_id_treatment")
-    )
+    @JoinTable(name = "patients_treatment", joinColumns = @JoinColumn(name = "patient_dni"), inverseJoinColumns = @JoinColumn(name = "treatment_id_treatment"))
     private List<Treatment> treatment;
     @OneToOne
     private Profile profile;

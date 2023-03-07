@@ -27,10 +27,6 @@ public class controllerTreatment {
     @Autowired
     private ServiceTreatment service;
 
-    // public controllerProfile(ServiceSmile service){
-    //     this.service = service;
-    // }
-
     @GetMapping
     public ResponseEntity<?> getAll(){
         return ResponseEntity.ok(service.findAll());

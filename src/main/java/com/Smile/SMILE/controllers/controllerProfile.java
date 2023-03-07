@@ -63,7 +63,7 @@ public class controllerProfile {
         }
 
         
-        profile.get().setId_treatment(profileDetails.getId_treatment());
+        profile.get().setTreatment(profileDetails.getTreatment());
         return ResponseEntity.ok().build();
     }
 

@@ -36,11 +36,11 @@ public class controllerPatientTest {
             List<Patient> patients = new ArrayList<>();
     
     
-            Patient patientMale =  new Patient(582395,"Bryan");
-            Patient patienTFemale = new Patient(592341, "Sandra");
+            // Patient patientMale =  new Patient(582395,"Bryan");
+            // Patient patienTFemale = new Patient(592341, "Sandra");
     
-            patients.add(patientMale);
-            patients.add(patienTFemale);
+            // patients.add(patientMale);
+            // patients.add(patienTFemale);
     
     
             when(service.findAll()).thenReturn(patients);

@@ -1,7 +1,5 @@
 package com.Smile.SMILE.models;
 
-import java.util.List;
-
 import javax.persistence.*;
 
 
@@ -18,10 +16,9 @@ public class Profile {
     private int phone;
     @Column(name = "direction")
     private String direction;
-    @Column(name = "id_treatment")
-    private String id_treatment;
-    @ManyToMany
-    private List<Treatment> treatment;
+    @ManyToOne(fetch =  FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_treatment", nullable = false)
+    private Treatment treatment;
     @ManyToOne(fetch =  FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_city", nullable = false)
     private City city;
@@ -30,13 +27,12 @@ public class Profile {
     @JoinColumn(name = "id_patient" ,referencedColumnName = "dni")
     private Patient patient;
 
-    public Profile(Long id, City city, int age, int phone, String direction, String id_treatment, List<Treatment> treatment) {
+    public Profile(Long id, City city, int age, int phone, String direction, Treatment treatment) {
         this.id = id;
         this.city = city;
         this.age = age;
         this.phone = phone;
         this.direction = direction;
-        this.id_treatment = id_treatment;
         this.treatment = treatment;
     }
 
@@ -84,14 +80,6 @@ public class Profile {
         this.direction = direction;
     }
 
-    public String getId_treatment() {
-        return id_treatment;
-    }
-
-    public void setId_treatment(String id_treatment) {
-        this.id_treatment = id_treatment;
-    }
-
     public Patient getPatient() {
         return patient;
     }
@@ -101,14 +89,13 @@ public class Profile {
     }
 
 
-    public List<Treatment> getTreatment() {
+    public Treatment getTreatment() {
         return treatment;
     }
 
 
-    public void setTreatment(List<Treatment> treatment) {
+    public void setTreatment(Treatment treatment) {
         this.treatment = treatment;
     }
 
-    
 }
