@@ -1,12 +1,14 @@
-INSERT INTO patients (dni,name) VALUES (582395,'Bryan')
-INSERT INTO patients (dni,name) VALUES (592341,'Omar')
-INSERT INTO patients (dni,name) VALUES (484845,'Sandra')
-INSERT INTO patients (dni,name) VALUES (404505, 'Carol')
-
+INSERT INTO patients (dni,name) VALUES (0,'Bryan')
+INSERT INTO patients (dni,name) VALUES (1,'Marc')
+INSERT INTO patients (dni,name) VALUES (2,'Sofia')
+INSERT INTO patients (dni,name) VALUES (3,'Laura')
+-- INSERT INTO cities (id,name) VALUES (1L,'Burgos') 
+-- luego del into coloca el nombre de la tabla 
+INSERT INTO cities (id_city, name) VALUES (default, 'Gijon')
 INSERT INTO cities (id_city, name) VALUES (null ,'Burgos')
 INSERT INTO cities (id_city, name) VALUES (null ,'Barcelona')
 INSERT INTO cities (id_city, name) VALUES (null ,'Alicante')
-INSERT INTO cities (id_city, name) VALUES (null ,'Bilbao')
+INSERT INTO cities (id_city, name) VALUES (null ,'Bilbao') 
 
 INSERT INTO treatments (id_treatment, title, description) VALUES (null, 'Diabetes', '10mg insulina')
 INSERT INTO treatments (id_treatment, title, description) VALUES (null, 'Gripe', '10mg amoxicilina')
